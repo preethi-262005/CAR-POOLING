@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+.head {
+  margin: auto;
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  opacity: 0.8;
+  background-color: white;
+}
+.page1 {
+  background-image: url("https://c0.wallpaperflare.com/preview/86/476/914/parked-airplane.jpg");
+  background-size: cover;
+  background-position: center;
+}

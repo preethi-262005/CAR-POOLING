@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .logo {
+    margin-right: 50vw;
+    color: orange;
+  }
+  .live {
+    text-decoration: none;
+    color: orange;
+  }
+  .live:hover {
+    text-decoration: none;
+    color: white;
+  }
+  a img {
+    width: 35px;
+    height: 35px;
+  }

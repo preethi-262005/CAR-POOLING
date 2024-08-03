@@ -1,0 +1,70 @@
+###
+post http://localhost:4000/person-api/person
+Content-Type: application/json
+
+{
+    "firstname":"preethi",
+    "lastname":"chowdary",
+    "email":"jutlapreeethi@gmail.com",
+    "password":"preethi",
+    "dateofbirth":"26-02-2005",
+    "phoneno":"9887654321",
+    "gender":"female",
+    "isdriver":"no"
+}
+
+###
+post  http://localhost:4000/person-api/login
+Content-Type: application/json
+
+{
+    "email":"jutlapreeethi@gmail.com",
+    "password":"preethi"
+
+}
+
+###
+post http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "userId":"{{$timestamp}}",
+    "noofpassengers":"2",
+    "phoneno":"9876543210",
+    "pickup":"miyapur",
+    "destination":"nizampet",
+    "dateofride":"25-02-2024",
+    "time":"8AM-12PM",
+    "restrictions":"no smoking",
+    "drivergender":"female"
+}
+
+###
+post http://localhost:4000/driver-api/driver
+Content-Type: application/json
+
+{
+    "driverId":"{{$timestamp}}",
+    "noofseats":"2",
+    "phoneno":"9876543210",
+    "pickup":"miyapur",
+    "destination":"nizampet",
+    "dateofride":"25-02-2024",
+    "time":"8AM-12PM",
+    "passengergender":"female"
+}
+
+###
+post http://localhost:4000/driver-api/getdriver
+Content-Type: application/json
+
+{
+    "noofpassengers":"2",
+    "phoneno":"9876543210",
+    "pickup":"miyapur",
+    "destination":"nizampet",
+    "dateofride":"25-02-2024",
+    "time":"8AM-12PM",
+    "restrictions":"no smoking",
+    "drivergender":"female"
+}

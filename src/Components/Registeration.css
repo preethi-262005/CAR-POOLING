@@ -1,0 +1,10 @@
+.card-box-shadow {
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.4);
+  }
+  form button {
+    background-color: orange;
+  }
+  
+  .rounded-input {
+    padding: 2px; /* Adjust the border-radius as needed */
+  }
