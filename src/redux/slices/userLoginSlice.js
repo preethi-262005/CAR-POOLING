@@ -14,10 +14,6 @@ export const  userLoginThunk=createAsyncThunk('userLogin',async(personCred,thunk
     }
 })
 
-
-
-
-
 export const userLoginSlice=createSlice({
     name:'user-login-slice',
     initialState:{isPending:false,currentUser:{},errorStatus:false,errorMessage:"",loginStatus:false},

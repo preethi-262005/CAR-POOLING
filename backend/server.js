@@ -3,7 +3,7 @@ const app = exp();
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
-const mongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
 // Middleware to parse JSON bodies
 app.use(exp.json());
@@ -14,7 +14,7 @@ if (fs.existsSync(frontendPath)) {
   app.use(exp.static(frontendPath));
 }
 
-// Import and use personApp routes
+// Import and use API routes
 const personApp = require('./APIs/person-api');
 const userApp = require('./APIs/user-api');
 const driverApp = require('./APIs/driver-api');
@@ -24,16 +24,18 @@ app.use('/user-api', userApp);
 app.use('/driver-api', driverApp);
 
 // Connect to MongoDB
-mongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true })
+MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true })
   .then(client => {
     const DBobj = client.db('carpool');
     const personCollection = DBobj.collection('person');
     const userCollection = DBobj.collection('user');
     const driverCollection = DBobj.collection('driver');
+    const confirmationCollection = DBobj.collection('confirmation');
 
     app.set('personCollection', personCollection);
     app.set('userCollection', userCollection);
     app.set('driverCollection', driverCollection);
+    app.set('confirmationCollection', confirmationCollection);
 
     console.log('DB connection success');
   })

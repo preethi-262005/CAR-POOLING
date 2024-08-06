@@ -44,10 +44,10 @@ post http://localhost:4000/driver-api/driver
 Content-Type: application/json
 
 {
-    "driverId":"{{$timestamp}}",
+    
     "noofseats":"2",
     "phoneno":"9876543210",
-    "pickup":"miyapur",
+    "pickup":"miyapur20",
     "destination":"nizampet",
     "dateofride":"25-02-2024",
     "time":"8AM-12PM",
@@ -61,10 +61,56 @@ Content-Type: application/json
 {
     "noofpassengers":"2",
     "phoneno":"9876543210",
-    "pickup":"miyapur",
-    "destination":"nizampet",
+    "pickup":"kurnool",
+    "destination":"hyderabad",
     "dateofride":"25-02-2024",
     "time":"8AM-12PM",
     "restrictions":"no smoking",
     "drivergender":"female"
+}
+###
+post  http://localhost:4000/driver-api/confirm
+Content-Type: application/json
+
+{
+    "driverId":"1722869929",
+    "userId":"{{$timestamp}}",
+    "noofpassengers":"2",
+    "phoneno":"9876543210",
+    "pickup":"miyapur2",
+    "destination":"nizampet2",
+    "dateofride":"25-02-2024",
+    "time":"8AM-12PM",
+    "restrictions":"no smoking",
+    "drivergender":"female",
+    "status":"false"
+
+}
+###
+post http://localhost:4000/driver-api/accept
+Content-Type: application/json
+
+{
+    "driverId":"1722869929",
+    "userId":"{{$timestamp}}",
+    "noofpassengers":"2",
+    "phoneno":"9876543210",
+    "pickup":"miyapur2",
+    "destination":"nizampet2",
+    "dateofride":"25-02-2024",
+    "time":"8AM-12PM",
+    "restrictions":"no smoking",
+    "drivergender":"female",
+    "status":"false"
+
+}
+
+
+###
+post  http://localhost:4000/driver-api/getuser
+Content-Type: application/json
+
+{
+    "id":"66af69431787da57c94c543c"
+    
 }

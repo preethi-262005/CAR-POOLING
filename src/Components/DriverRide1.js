@@ -11,19 +11,19 @@ function DriverRide1() {
   const [err, setErr] = useState('');
   const navigate = useNavigate();
 
-  async function onSignUpFormSubmit(userObj) {
-    try {
-      const res = await axios.post('http://localhost:4000/driver-api/driver', userObj);
-      if (res.data.message === 'New driver added') {
-        navigate("/login/Carpool/UserRide/AvailableDrivers");
-      } else {
-        setErr(res.data.message);
-      }
-    } catch (error) {
+  async function onSignUpFormSubmit(driverObj) {
+    try{
+    let res1
+    res1=  await axios.post('http://localhost:4000/driver-api/driver',driverObj)
+    if(res1.data.message=='New driver added'){
+      navigate("/login/Carpool/DriverRide/AvailableUsers",{state:res1.data.payload.insertedId});
+      
+    } }catch (error) {
       console.error("Error during pooling:", error);
       setErr("An error occurred during pooling");
     }
   }
+
 
   return (
     <div className="page">

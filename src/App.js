@@ -12,6 +12,7 @@ import UserRide2 from "./Components/UserRide2";
 import Payment from "./Components/Payment";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from "react-redux";
+import AvailUsers from "./Components/AvailUsers";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -55,6 +56,10 @@ export default function App() {
     {
       path: "/login/Carpool/DriverRide",
       element: <DriverRide1 />,
+    },
+    {
+      path: "/login/Carpool/DriverRide/AvailableUsers",
+      element:<AvailUsers/>
     },
     {
       path: "/login/CarPool/UserRide/AvailableDrivers/Payment",

@@ -14,7 +14,9 @@ function Login() {
   function onSignUpFormSubmit(data) {
     dispatch(userLoginThunk(data));
   }
+  
   useEffect(() => {
+    console.log(currentUser)
     if (loginStatus === true) {
       navigate('/login/CarPool')
     }
