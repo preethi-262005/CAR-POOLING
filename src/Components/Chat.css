@@ -1,0 +1,162 @@
+
+  
+  .fireApp {
+    text-align: center;
+    max-width: 728px;
+    margin: 0 auto;
+  }
+  
+  .fireApp header {
+    background-color: #2caeea;
+    height: 10vh;
+    min-height: 50px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    max-width: 728px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .fireApp section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(253, 253, 253);
+  }
+  
+  main {
+    padding: 10px;
+    height: 80vh;
+    margin: 10vh 0 10vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  main::-webkit-scrollbar-track {
+    background: #b9b9b9;
+  }
+  
+  main::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  
+  .id1 {
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(50, 100, 166);
+    width: 100%;
+    max-width: 728px;
+    display: flex;
+    font-size: 1.5rem;
+  }
+  
+  form button {
+    width: 20%;
+    background-color: #2caeea;
+    color:#fcfdfe;
+    border-radius: 0px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.25rem;
+    border: none;
+  }
+  
+  
+  .chatinput {
+    line-height: 1.5;
+    width: 100%;
+    font-size: 1.5rem;
+    background: rgb(184, 180, 180);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+  }
+  
+   button1, button2 {
+    background-color: #fcfdfe; /* Green */
+    border: none;
+    color: rgb(147, 142, 142);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.25rem;
+    border-radius: 10px;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  
+  .firesign-in {
+    color: #282c34;
+    background:  #2caeea;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  
+  
+  
+  ul, li {
+    text-align: left;
+    list-style: none;
+  }
+  
+  p {
+    max-width: 500px;
+    margin-bottom: 12px;
+    line-height: 24px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+  
+  .message {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .sent {
+    flex-direction: row-reverse;
+  }
+  
+  .sent p {
+    color: white;
+    background: #0b93f6;
+    align-self: flex-end;
+  }
+  .received p {
+    background: #e5e5ea;
+    color: black;
+  }
+  
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 2px 5px;
+  }

@@ -13,6 +13,10 @@ import Payment from "./Components/Payment";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from "react-redux";
 import AvailUsers from "./Components/AvailUsers";
+import Chat from "./Components/Chat";
+import Contact from "./Components/Contact";
+import Joinpage from "./Components/Joinpage";
+import LastPage from "./Components/LastPage";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,6 +28,15 @@ export default function App() {
     {
       path: '',
       element: <Home />,
+    },
+    {
+      path:'/contact',
+      element:<Contact/>
+
+    },
+    {
+      path:'/about',
+      element:<Joinpage/>
     },
     {
       path: "/AirportHome",
@@ -40,6 +53,10 @@ export default function App() {
     {
       path: "/Register",
       element: <Registeration />,
+    },
+    {
+      path:"/login/CarPool/UserRide/AvailableDrivers/Chat",
+      element: <Chat />,
     },
     {
       path: "/login/CarPool",
@@ -69,6 +86,10 @@ export default function App() {
       path: "/login/CarPool/UserRide/AvailableDrivers/UserRide2",
       element: <UserRide2 />,
     },
+    {
+      path:"/login/CarPool/UserRide/AvailableDrivers/UserRide2/last",
+      element:<LastPage/>
+    }
   ]);
   return (
     <div className="App">

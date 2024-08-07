@@ -1,9 +1,9 @@
-* {
+.Home1 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  .Home {
+  .divi{
     background: url(https://e0.pxfuel.com/wallpapers/915/846/desktop-wallpaper-ford-mustang-gt-mustangs-daily-mustang-car-2014-mustang.jpg);
     background-size: cover;
     background-repeat: no repeat;

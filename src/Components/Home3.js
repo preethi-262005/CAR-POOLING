@@ -9,7 +9,7 @@ function Home3() {
     <div className="Home3">
       <Header />
       <div className="AirHome" style={{ minHeight: "100vh" }}>
-        <h1 className="heading">
+        <h1 className="heading ">
           Fly without fear.
           <br />
         </h1>

@@ -87,11 +87,12 @@ Content-Type: application/json
 
 }
 ###
-post http://localhost:4000/driver-api/accept
+put http://localhost:4000/driver-api/accept
 Content-Type: application/json
 
 {
-    "driverId":"1722869929",
+    "_id":"66b2275da939e7f4311a67a5",
+    "driverId":"66b23a2c0741f2b152fb4956",
     "userId":"{{$timestamp}}",
     "noofpassengers":"2",
     "phoneno":"9876543210",
@@ -114,3 +115,6 @@ Content-Type: application/json
     "id":"66af69431787da57c94c543c"
     
 }
+###
+get http://localhost:4000/driver-api/rideconfirmation
+

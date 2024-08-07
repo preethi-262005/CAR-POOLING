@@ -13,6 +13,19 @@ function AvailUsers() {
   const [users, setUsers] = useState([]);
   console.log(state)
   let vari={id:state}
+
+
+  async function handleAccept(user){
+    try{
+   let res= await axios.put('http://localhost:4000/driver-api/accept',user)
+   if(res.data.message=='accepted'){
+    console.log("accepted")
+   }
+  }catch(error){
+    console.log(error)
+  }
+    
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -45,17 +58,7 @@ console.log(users)
       setStartIndex(startIndex - cardsPerPage);
     }
   };
-  async function handleAccept(user){
-    try{
-   let res= await axios.post('http://localhost:4000/driver-api/accept',user)
-   if(res.data.message=='accepted'){
-    console.log("accepted")
-   }
-  }catch(error){
-    console.log(error)
-  }
-    
-  }
+ 
  
   return (
     <div>
@@ -69,25 +72,26 @@ console.log(users)
                 key={user.state.phoneno}
               >
                 <div className={"card " + (startIndex > 0 ? "card-hidden" : "")}>
-                  <div className="card-header">{user.state.phoneno}</div>
-                  <div className="card-body">
-                    <p className="card-text p-2">
+                  <div className="card-header"><b>Phoneno:</b><br></br>{user.state.phoneno}</div>
+                  <div className="card-body ">
+                    <p className="id11 card-text p-2">
                       Start Location: {user.state.pickup}
                       <br />
                       Destination: {user.state.destination}
                       <br />
-                      Seats: {user.state.noofpassengers}
+                      No of Passengers: {user.state.noofpassengers}
                       <br />
-                      Rating: {user.state.time}
+                      Time: {user.state.time}
                     </p>
                   </div>
                   <div className="card-footer">
-                    <button
-                      className="btn btn-warning m-1 p-2"
-                      onClick={handleAccept(user)}
-                    >
-                      {user.status === false ? "Accept" : "Accepted"}
-                    </button>
+                  <button
+  className="btn btn-warning m-1 p-2"
+  onClick={() => handleAccept(user)} // Use an arrow function to pass the handler
+>
+  {user.status === false ? "Accept" : "Accepted"}
+</button>
+
                   </div>
                 </div>
               </div>
@@ -114,7 +118,7 @@ console.log(users)
         </div>
         <div className="d-flex justify-content-center my-3">
           <button className="btn btn-warning p-3"onClick={() =>
-                        navigate("/login/CarPool/UserRide/AvailableDrivers/Payment")
+                        navigate("/login/CarPool/UserRide/AvailableDrivers/Chat")
                       }>Start the ride</button>
         </div>
       </div>

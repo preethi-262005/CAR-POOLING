@@ -29,6 +29,7 @@
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 20px;
+    color:black
   }
   
   .card-footer {
@@ -50,4 +51,7 @@
   .card-footer img {
     width: 30px;
     height: 30px;
+  }
+  .id11{
+    color:black
   }

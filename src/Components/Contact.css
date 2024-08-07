@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.contact {
+  font-family: "PT Serif", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.contact-text-center {
+  text-align: center;
+}
+
+.contact-display-4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.contact-content-animation-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  align-items: center;
+  justify-content: space-around; /* Ensure equal spacing */
+  gap: 20px; /* Space between elements */
+  margin-top: 50px;
+}
+
+.contact-animation {
+  flex: 1;
+  max-width: 400px; 
+  margin-right: 40px;
+}
+
+.contact-content1, .contact-content2 {
+  flex: 1;
+  max-width: 600px;
+  color: #333; /* Ensure text is visible */
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.contact-content1 {
+  margin-right: 20px;
+}
+
+.contact-content2 {
+  margin-left: 20px;
+}
+
+.contact-text-left {
+  text-align: left;
+}
+
+.contact-mt-4 {
+  margin-top: 1.5rem;
+}
+
+.contact-navy-line {
+  width: 800px;
+  height: 4px;
+  background-color: red;
+  margin: 0 auto 20px;
+  transition: width 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); 
+}
+
+.contact-navy-line:hover {
+  width: 1000px;
+}
+
+.contact-h1, .contact-h2 {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-fs-5 {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.contact-p {
+  margin: 0;
+}
+
+.contact-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}

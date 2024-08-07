@@ -40,11 +40,12 @@ function Registeration() {
   return (
     <div>
       <Header />
-      <div className="card text-center m-auto border-1 w-50 mt-5 mb-3 p-4 card-box-shadow">
+      <div className="text-center m-auto border-1 w-50 mt-5 mb-3 p-4 card-box-shadow">
         <div className="">
           <form className="w-75 mx-auto" onSubmit={handleSubmit(onSignUpFormSubmit)} encType="multipart/form-data">
-            <h3 className="mb-3"> SIGN UP </h3>
+            
             <div className="card-body">
+            <h3 className="mb-3"> SIGN UP </h3>
               {err && <p className="text-danger text-center">{err}</p>}
               <input
                 type="text"

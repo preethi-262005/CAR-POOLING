@@ -15,10 +15,10 @@ function Header() {
         <a href="" className="live" onClick={() => navigate("/")}>
           Home
         </a>
-        <a href="" className="live ">
+        <a href="" className="live " onClick={() => navigate("/contact")}>
           ContactUs
         </a>
-        <a href="" className="live">
+        <a href="" className="live"onClick={() => navigate("/about")}>
           About
         </a>
 

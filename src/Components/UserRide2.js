@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 function UserRide2() {
   const [isDriver, setIsDriver] = useState(false);
+let navigate=useNavigate();
   return (
     <div className="mx-auto">
       <Header />
@@ -82,12 +84,12 @@ function UserRide2() {
               name="restrictions"
               className="form-control mb-3 rounded-input"
             ></textarea>
-            <button type="submit" className="btn btn-warning">
+            <button type="submit" className="btn btn-warning" onClick={() => navigate("/login/CarPool/UserRide/AvailableDrivers/UserRide2/last")} >
               Confirm
             </button>
           </>
         ) : (
-          <button type="submit" className="btn btn-warning mx-auto">
+          <button type="submit" className="btn btn-warning mx-auto"onClick={() => navigate("/login/CarPool/UserRide/AvailableDrivers/UserRide2/last")} >
             Submit
           </button>
         )}

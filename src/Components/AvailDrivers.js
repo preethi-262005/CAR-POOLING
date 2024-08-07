@@ -12,17 +12,22 @@ function AvailDrivers() {
   const [startIndex, setStartIndex] = useState(0);
   const cardsPerPage = 3;
   const [drivers, setDrivers] = useState([]);
+  const [insertionId, setInsertionId] = useState(null);
+  const [rideConfirmed, setRideConfirmed] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.post("http://localhost:4000/driver-api/getdriver", state);
-        
-        console.log('Response Data:', res.data); // Log the full response data
-  
+        const res = await axios.post(
+          "http://localhost:4000/driver-api/getdriver",
+          state
+        );
+
+        console.log("Response Data:", res.data);
+
         if (res.data.message === "Drivers available") {
-          setDrivers(res.data.payload); // Assuming payload contains the list of drivers
-          console.log('Drivers:', res.data.payload);
+          setDrivers(res.data.payload);
+          console.log("Drivers:", res.data.payload);
         } else {
           console.error("Unexpected response message:", res.data.message);
         }
@@ -30,11 +35,44 @@ function AvailDrivers() {
         console.error("Error fetching drivers:", error.message || error);
       }
     };
-  
+
     fetchData();
-  }, [state]); // Add userObj to the dependency array if it might change
-  
-console.log(drivers)
+  }, [state]);
+
+  useEffect(() => {
+    const fetchStatus = async () => {
+      try {
+        if (insertionId) {
+          const res = await axios.get(
+            `http://localhost:4000/driver-api/rideconfirmation/${insertionId}`
+          );
+          console.log(res.data.payload);
+          if (res.data.message === "Ride confirmed") {
+            setRideConfirmed(true);
+          } else {
+            setRideConfirmed(false);
+          }
+        }
+      } catch (error) {
+        console.log("Error fetching ride confirmation status:", error);
+      }
+    };
+
+    // Poll every 5 seconds to check the status
+    const interval = setInterval(() => {
+      fetchStatus();
+    }, 5000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, [insertionId]);
+
+  useEffect(() => {
+    if (rideConfirmed) {
+      navigate("/login/CarPool/UserRide/AvailableDrivers/Chat");
+    }
+  }, [rideConfirmed, navigate]);
+
   const nextSet = () => {
     if (startIndex + cardsPerPage < drivers.length) {
       setStartIndex(startIndex + cardsPerPage);
@@ -49,7 +87,6 @@ console.log(drivers)
 
   const handleConfirm = async (driverId) => {
     try {
-      // Make an API call to confirm the ride
       const response = await axios.post(
         "http://localhost:4000/driver-api/confirm",
         {
@@ -57,20 +94,14 @@ console.log(drivers)
           state,
         }
       );
+      console.log(response);
 
       if (response.data.message === "Confirmation successful") {
-        // Redirect to payment page or show a success message
-        navigate("/login/CarPool/UserRide/AvailableDrivers/Payment", {
-          state: { state, driverId },
-          
-        });
-        console.log(state);
+        setInsertionId(response.data.payload._id); // Capture the insertionId
       } else {
-        // Handle confirmation failure
         console.error("Failed to confirm ride:", response.data.message);
       }
     } catch (error) {
-      // Handle any errors that occur during the request
       console.error("Error confirming ride:", error);
     }
   };
@@ -88,26 +119,24 @@ console.log(drivers)
                 key={driver._id}
               >
                 <div className={"card " + (startIndex > 0 ? "card-hidden" : "")}>
-                  <div className="card-header">{driver._id}</div>
-                  <div className="card-body">
-                    <img alt={driver._id} />
-                    <p className="card-text p-2">
+                  <div className="card-header"><b>Driver Id:</b><br></br>{driver._id}</div>
+                  <div className="card-body ">
+                    <p className=" id10 card-text p-2 ">
                       Start Location: {driver.pickup}
                       <br />
                       Destination: {driver.destination}
                       <br />
                       Seats: {driver.noofseats}
                       <br />
-                      Rating: {driver.passengergender}
+                      Gender: {driver.passengergender}
                     </p>
                   </div>
                   <div className="card-footer">
                     <button
                       className="btn btn-warning m-1 p-2"
                       onClick={() => handleConfirm(driver._id)}
-
                     >
-                      Confirm
+                      Request
                     </button>
                   </div>
                 </div>

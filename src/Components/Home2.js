@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import "./Home2.css";
+import "./Home.css"
 import { useNavigate } from "react-router-dom";
 function Home2() {
   let navigate = useNavigate();
   return (
-    <div className="Home1">
+    <div className="Home">
       <Header />
-      <div className="divi" style={{ minHeight: "85vh" }}>
+      <div className="divi" style={{ minHeight: "100vh" }}>
         <h1 className="heading">
           SHARE YOUR
           <br />

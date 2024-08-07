@@ -1,0 +1,16 @@
+.lastpage-content-animation-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    align-items: center;
+    justify-content: space-around; /* Ensure equal spacing */
+    gap: 20px; /* Space between elements */
+    margin-top: 200px;
+    margin-left: 40px;
+
+  }
+  
+  .lastpage-animation {
+    flex: 1;
+    max-width: 400px; 
+    margin-left: 20px;
+  }
