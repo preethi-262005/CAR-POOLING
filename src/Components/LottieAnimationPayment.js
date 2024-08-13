@@ -1,6 +1,8 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../animations/animationpayment1';
+import animationData from '../animations/animationpayment1.json'
+
+//import animationData from '../animations/animationpayment1';
 
 const LottieAnimationPayment = () => {
   const defaultOptions = {

@@ -6,6 +6,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -29,7 +30,11 @@ function Chat() {
   return (
     <div className="fireApp">
       <header>
-        <h1><span role="img" aria-label="Chat Icons">⚛️🔥💬</span></h1>
+        <h1>
+          <span role="img" aria-label="Chat Icons">
+            ⚛️🔥💬
+          </span>
+        </h1>
         <SignOut />
       </header>
 
@@ -54,10 +59,12 @@ function SignIn() {
 }
 
 function SignOut() {
-  return auth.currentUser && (
-    <button className="firesign-out" onClick={() => signOut(auth)}>
-      Sign Out
-    </button>
+  return (
+    auth.currentUser && (
+      <button className="firesign-out" onClick={() => signOut(auth)}>
+        Sign Out
+      </button>
+    )
   );
 }
 
@@ -70,6 +77,10 @@ function ChatRoom() {
   const [messages] = useCollectionData(messagesQuery, { idField: 'id' });
   const [formValue, setFormValue] = useState('');
 
+  // Access current user from Redux state
+  const { currentUser } = useSelector((state) => state.userLogin);
+  console.log("hi",currentUser);
+
   const sendMessage = async (e) => {
     e.preventDefault();
 
@@ -79,29 +90,43 @@ function ChatRoom() {
       text: formValue,
       createdAt: serverTimestamp(),
       uid,
-      photoURL
+      photoURL,
     });
 
     setFormValue('');
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const finishChat = () => {
+    if (currentUser.isdriver==="yes") {
+      navigate('/login/CarPool/UserRide/AvailableDrivers/UserRide2'); // Change to your driver's dashboard path
+    } else {
+      navigate('/payment'); // Change to your user's summary path
+    }
+  };
+
   return (
     <>
       <main>
-        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+        {messages &&
+          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
         <span ref={dummy}></span>
       </main>
 
       <form className="id1" onSubmit={sendMessage}>
-        <input className="chatinput"
+        <input
+          className="chatinput"
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
           placeholder="Send a message"
         />
 
-        <button type="submit" disabled={!formValue}>Send</button>
-        <button onClick={() => navigate("/login/CarPool/UserRide/AvailableDrivers/Payment")}>Finish</button>
+        <button type="submit" disabled={!formValue}>
+          Send
+        </button>
+        <button type="button" onClick={finishChat}>
+          Finish
+        </button>
       </form>
     </>
   );

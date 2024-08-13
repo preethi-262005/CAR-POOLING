@@ -10,15 +10,15 @@ const Footer = () => {
     <footer>
       <div className="footer">
         <div className="row">
-          <ul>
-            <li>
+          <ul className="d-flex ml-6 p-4 justify-content-center ">
+            <li className="n-2">
               <a href="#">
                 <span className="icon">
                   <FaFacebook />
                 </span>
               </a>
             </li>
-            <li>
+            <li className="m-2">
               {" "}
               <a href="#">
                 <span className="icon">
@@ -26,14 +26,14 @@ const Footer = () => {
                 </span>
               </a>
             </li>
-            <li>
+            <li className="m-2">
               <a href="#">
                 <span className="icon">
                   <FaYoutube />
                 </span>
               </a>
             </li>
-            <li>
+            <li className="m-2">
               <a href="#">
                 <span className="icon">
                   <FaTwitter />
@@ -44,8 +44,8 @@ const Footer = () => {
         </div>
 
         <div className="row">
-          <ul>
-            <li>
+          <ul className="d-flex ml-6 justify-content-center ">
+            <li >
               <a href="#">Contact us</a>
             </li>
             <li>
@@ -63,7 +63,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="row text-center">
+        <div className=" id15 d-flex ml-6 justify-content-center  ">
           RideShift Copyright © 2024 RideShift - All rights reserved
         </div>
       </div>

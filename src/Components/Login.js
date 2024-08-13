@@ -6,21 +6,24 @@ import "./Login.css";
 import {useForm} from "react-hook-form"
 import {useDispatch,useSelector} from "react-redux"
 import { userLoginThunk } from "../redux/slices/userLoginSlice";
+
 function Login() {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { currentUser, loginStatus } = useSelector(state => state.userLogin);
+  
+  let { isPending,currentUser,errStatus,errMessage,loginStatus } = useSelector(state => state.userLogin);
   function onSignUpFormSubmit(data) {
-    dispatch(userLoginThunk(data));
+    const actionObj=userLoginThunk(data)
+    dispatch(actionObj);
   }
   
   useEffect(() => {
     console.log(currentUser)
     if (loginStatus === true) {
-      navigate('/login/CarPool')
+      navigate('/home')
     }
-  }, [loginStatus, currentUser, navigate]);
+  }, [loginStatus, currentUser,navigate]);
   return (
     <div className="bro">
       <Header />
@@ -28,17 +31,18 @@ function Login() {
         <h1>Login</h1>
         <form className="mx-auto w-50 text-center" onSubmit={handleSubmit(onSignUpFormSubmit)} >
           <div className="input-box mx-auto">
-            <input
+          <input
               type="email"
-              className="form-control mb-3"
+              className="form-control "
               placeholder="email"
               {...register("email")}
             ></input>
+            
           </div>
           <div className="input-box mx-auto">
             <input
               type="password"
-              className="form-control mb-3"
+              className="form-control "
               placeholder="password"
               {...register("password")}
             ></input>

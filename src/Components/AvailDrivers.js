@@ -69,7 +69,7 @@ function AvailDrivers() {
 
   useEffect(() => {
     if (rideConfirmed) {
-      navigate("/login/CarPool/UserRide/AvailableDrivers/Chat");
+      navigate("/chat");
     }
   }, [rideConfirmed, navigate]);
 
@@ -126,7 +126,13 @@ function AvailDrivers() {
                       <br />
                       Destination: {driver.destination}
                       <br />
+                      Phoneno: {driver.phoneno}
+                      <br />
                       Seats: {driver.noofseats}
+                      <br />
+                      DateOfRide: {driver.dateofride}
+                      <br />
+                      Time: {driver.time}
                       <br />
                       Gender: {driver.passengergender}
                     </p>

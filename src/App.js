@@ -17,6 +17,10 @@ import Chat from "./Components/Chat";
 import Contact from "./Components/Contact";
 import Joinpage from "./Components/Joinpage";
 import LastPage from "./Components/LastPage";
+import Feedback from "./pages/Feedback";
+import Logout from "./pages/Logout";
+import Package from "./pages/Package";
+import Profile from "./pages/Profile";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -25,14 +29,27 @@ import {
 export default function App() {
   const {currentUser}=useSelector((state)=>state.userLogin)
   let browserRouter = createBrowserRouter([
-    {
-      path: '',
-      element: <Home />,
-    },
+    
     {
       path:'/contact',
       element:<Contact/>
 
+    },
+    {
+      path:'/profile',
+      element:<Profile/>
+    },
+    {
+      path:'/feedback',
+      element:<Feedback/>
+    },
+    {
+      path:'/package',
+      element:<Package/>
+    },
+    {
+      path:'/logout',
+      element:<Logout/>
     },
     {
       path:'/about',
@@ -55,12 +72,16 @@ export default function App() {
       element: <Registeration />,
     },
     {
-      path:"/login/CarPool/UserRide/AvailableDrivers/Chat",
+      path:"/chat",
       element: <Chat />,
     },
     {
-      path: "/login/CarPool",
+      path: '',
       element: <Home2 />,
+    },
+    {
+      path:'/home',
+      element:<Home2/>
     },
     {
       path: "/login/Carpool/UserRide",
@@ -79,7 +100,7 @@ export default function App() {
       element:<AvailUsers/>
     },
     {
-      path: "/login/CarPool/UserRide/AvailableDrivers/Payment",
+      path: "/payment",
       element: <Payment />,
     },
     {

@@ -31,6 +31,7 @@ MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true })
     const userCollection = DBobj.collection('user');
     const driverCollection = DBobj.collection('driver');
     const confirmationCollection = DBobj.collection('confirmation');
+    
 
     app.set('personCollection', personCollection);
     app.set('userCollection', userCollection);

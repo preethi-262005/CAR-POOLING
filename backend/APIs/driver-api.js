@@ -12,6 +12,7 @@ driverApp.use((req, res, next) => {
 });
 
 driverApp.post('/driver', expressAsyncHandler(async (req, res) => {
+
   const newDriver = req.body;
   let data= await driverCollection.insertOne(newDriver);
   res.send({ message: "New driver added" ,payload:data});

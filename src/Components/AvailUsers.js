@@ -81,7 +81,13 @@ console.log(users)
                       <br />
                       No of Passengers: {user.state.noofpassengers}
                       <br />
+                      Gender: {user.state.drivergender}
+                      <br />
+                      DateOfRide: {user.state.dateofride}
+                      <br />
                       Time: {user.state.time}
+                      <br/>
+                      Restrictions:{user.state.restrictions}
                     </p>
                   </div>
                   <div className="card-footer">
@@ -118,7 +124,7 @@ console.log(users)
         </div>
         <div className="d-flex justify-content-center my-3">
           <button className="btn btn-warning p-3"onClick={() =>
-                        navigate("/login/CarPool/UserRide/AvailableDrivers/Chat")
+                        navigate("/chat")
                       }>Start the ride</button>
         </div>
       </div>

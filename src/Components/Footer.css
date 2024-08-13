@@ -7,10 +7,11 @@
   
   .footer .row {
     width: 100%;
-    margin: 1% 0%;
+    margin: 1% 10%;
     padding: 0.6% 0%;
     color: gray;
     font-size: 0.8em;
+    margin-left: 50px;
   }
   
   .footer .row a {
@@ -60,4 +61,7 @@
     .footer .row a i {
       margin: 0% 3%;
     }
+  }
+  .id15{
+    color:gray
   }

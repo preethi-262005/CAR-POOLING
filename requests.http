@@ -3,14 +3,14 @@ post http://localhost:4000/person-api/person
 Content-Type: application/json
 
 {
-    "firstname":"preethi",
-    "lastname":"chowdary",
+    "name":"preethi",
     "email":"jutlapreeethi@gmail.com",
     "password":"preethi",
     "dateofbirth":"26-02-2005",
     "phoneno":"9887654321",
     "gender":"female",
-    "isdriver":"no"
+    "isdriver":"no",
+    "feedback":[]
 }
 
 ###
@@ -18,7 +18,7 @@ post  http://localhost:4000/person-api/login
 Content-Type: application/json
 
 {
-    "email":"jutlapreeethi@gmail.com",
+    "name":"preethi",
     "password":"preethi"
 
 }
@@ -45,13 +45,14 @@ Content-Type: application/json
 
 {
     
-    "noofseats":"2",
+    "noofseats":"5",
     "phoneno":"9876543210",
-    "pickup":"miyapur20",
+    "pickup":"usa10",
     "destination":"nizampet",
     "dateofride":"25-02-2024",
     "time":"8AM-12PM",
-    "passengergender":"female"
+    "passengergender":"female",
+    "feedback":[]
 }
 
 ###
@@ -118,3 +119,4 @@ Content-Type: application/json
 ###
 get http://localhost:4000/driver-api/rideconfirmation
 
+put http://localhost:4000/person-api/feedback/

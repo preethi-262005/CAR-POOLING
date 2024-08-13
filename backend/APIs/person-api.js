@@ -18,9 +18,9 @@ personApp.post('/person', upload.fields([
 ]), expressAsyncHandler(async (req, res) => {
   const personCollectionObj = req.app.get('personCollection');
   const person = req.body;
-
+  person.feedback=[];
   // Check if the person already exists
-  let dbperson = await personCollectionObj.findOne({ email: person.email });
+  let dbperson = await personCollectionObj.findOne({email: person.email });
   if (dbperson !== null) {
     return res.status(400).send({ message: "Person already exists" });
   }
@@ -53,9 +53,9 @@ personApp.post('/login', expressAsyncHandler(async (req, res) => {
   const personCred = req.body;
 
   // Find the person by email
-  let dbperson = await personCollectionObj.findOne({ email: personCred.email });
+  let dbperson = await personCollectionObj.findOne({ email : personCred.email });
   if (dbperson === null) {
-    return res.status(400).send({ message: "Invalid email" });
+    return res.status(400).send({ message: "Invalid name" });
   } else {
     // Compare the password
     let status = await bcryptjs.compare(personCred.password, dbperson.password);
@@ -65,9 +65,33 @@ personApp.post('/login', expressAsyncHandler(async (req, res) => {
       // Create and send a JWT token
       const signedToken = jwt.sign({ email: dbperson.email }, 'abcdef', { expiresIn: '50m' });
       delete dbperson.password;
-      res.send({ message: "Login success", token: signedToken, person: dbperson });
+      res.send({ message: "Login success", token: signedToken, user: dbperson });
     }
   }
+}));
+
+personApp.put('/feedback/:email', expressAsyncHandler(async (req, res) => {
+  const emailId = req.params.email;
+  const feedback = req.body;
+  console.log(feedback)
+
+  const personCollectionObj = req.app.get('personCollection');
+
+  // Find the person by email
+  const dbPerson = await personCollectionObj.findOne({ email: emailId });
+
+  if (!dbPerson) {
+    return res.status(404).send({ message: "Person not found" });
+  }
+
+  // Append feedback to the existing feedback array
+  await personCollectionObj.updateOne(
+    { email: emailId },
+    { $push: { feedback: feedback } }
+  );
+  console.log(dbPerson.feedback)
+
+  res.send({ message: "Feedback added successfully" });
 }));
 
 module.exports = personApp;
