@@ -1,4 +1,5 @@
 const exp = require('express');
+const cors = require('cors'); // Import cors module
 const app = exp();
 const path = require('path');
 const fs = require('fs');
@@ -7,6 +8,11 @@ const { MongoClient } = require('mongodb');
 
 // Middleware to parse JSON bodies
 app.use(exp.json());
+
+// Apply CORS middleware
+app.use(cors({
+  origin: 'http://localhost:3000' // Replace with your frontend URL if different
+}));
 
 // Serve frontend if it exists
 const frontendPath = path.join(__dirname, '../build');
@@ -32,7 +38,6 @@ MongoClient.connect(process.env.DB_URL, { useUnifiedTopology: true })
     const driverCollection = DBobj.collection('driver');
     const confirmationCollection = DBobj.collection('confirmation');
     
-
     app.set('personCollection', personCollection);
     app.set('userCollection', userCollection);
     app.set('driverCollection', driverCollection);

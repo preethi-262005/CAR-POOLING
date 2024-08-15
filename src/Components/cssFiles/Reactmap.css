@@ -1,0 +1,9 @@
+.directions {
+    width: 250px;
+    height: 500px;
+    color: black; /* Change this to any color you prefer */
+    background-color: white; /* Optional: ensures good contrast */
+    padding: 10px; /* Optional: adds some padding around the text */
+    border-radius: 5px; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+}
